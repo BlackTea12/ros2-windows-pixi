@@ -1,0 +1,36 @@
+[workspace]
+authors = ["Luna"]
+channels = ["robostack-jazzy", "conda-forge"]
+name = "ros2-windows"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks.build]
+cmd = "colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"
+cwd = "colcon_ws"
+
+[tasks.build-debug]
+cmd = "colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug"
+cwd = "colcon_ws"
+
+[dependencies]
+python = ">=3.12,<3.13"
+cmake = "<4.0"
+git-lfs = "*"
+
+[target.win-64.dependencies]
+m2-patch = "*"
+git = "*"
+
+[environments]
+jazzy = ["ros_base"]
+
+[feature.ros_base.dependencies]
+ros-jazzy-ros-base = "*"
+ros-jazzy-desktop = "*"
+ros-jazzy-ament-cmake = "*"
+ros-jazzy-rclcpp = "*"
+ros-jazzy-rclpy = "*"
+ros-jazzy-cyclonedds = "*"
+ros-jazzy-rmw-cyclonedds-cpp = "*"
+colcon-common-extensions = "*"

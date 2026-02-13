@@ -5,12 +5,12 @@ name = "ros2-windows"
 platforms = ["win-64"]
 version = "0.1.0"
 
-[tasks.build]
-cmd = "colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"
+[tasks.build-release]
+cmd = "colcon build --merge-install --parallel-workers 6 --build-base ../build --install-base ../install --cmake-args -DCMAKE_BUILD_TYPE=Release"
 cwd = "colcon_ws"
 
 [tasks.build-debug]
-cmd = "colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug"
+cmd = "colcon build --merge-install --parallel-workers 6 --build-base ../build --install-base ../install --cmake-args -DCMAKE_BUILD_TYPE=Debug"
 cwd = "colcon_ws"
 
 [dependencies]

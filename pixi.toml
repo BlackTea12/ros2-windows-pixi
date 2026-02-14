@@ -9,6 +9,10 @@ version = "0.1.0"
 cmd = "colcon build --merge-install --parallel-workers 6 --build-base ../build --install-base ../install --cmake-args -DCMAKE_BUILD_TYPE=Release"
 cwd = "colcon_ws"
 
+[tasks.build-release-event]
+cmd = "colcon build --merge-install --parallel-workers 6 --build-base ../build --install-base ../install --cmake-args -DCMAKE_BUILD_TYPE=Release --event-handlers console_direct+"
+cwd = "colcon_ws"
+
 [tasks.build-debug]
 cmd = "colcon build --merge-install --parallel-workers 6 --build-base ../build --install-base ../install --cmake-args -DCMAKE_BUILD_TYPE=Debug"
 cwd = "colcon_ws"
